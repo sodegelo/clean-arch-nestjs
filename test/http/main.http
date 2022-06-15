@@ -1,0 +1,14 @@
+GET http://localhost:3000/routes HTTP/1.1
+Content-Type: application/json 
+
+###
+POST http://localhost:3000/routes HTTP/1.1
+Content-Type: application/json  
+
+{
+    "title":"Route 1",
+    "startPosition": {"lat": 0, "lng": 0},
+    "endPosition": {"lat": 2, "lng": 4}
+}
+
+###
