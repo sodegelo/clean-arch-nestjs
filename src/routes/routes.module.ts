@@ -10,6 +10,7 @@ import { TypeOrmModule, getDataSourceToken } from '@nestjs/typeorm';
 import { RouteSchema } from 'src/@core/infra/db/typeorm/route.schema';
 import { RouteTypeOrmRepository } from 'src/@core/infra/db/typeorm/route-typeorm.repository';
 import { DataSource } from 'typeorm';
+import { RoutesGateway } from './routes.gateway';
 
 @Module({
   imports: [ TypeOrmModule.forFeature([RouteSchema])],
@@ -40,7 +41,8 @@ import { DataSource } from 'typeorm';
         return new ListRoutesUseCase(routeRepo);
       },
       inject: [RouteTypeOrmRepository]
-    }
+    },
+    RoutesGateway
   ]
 })
 export class RoutesModule {}

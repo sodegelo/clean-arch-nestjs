@@ -4,6 +4,7 @@ import { CreateRouteDto } from './dto/create-route.dto';
 import { UpdateRouteDto } from './dto/update-route.dto';
 import { CreateRouteUseCase } from 'src/@core/application/create-route.use-case';
 import { ListRoutesUseCase } from 'src/@core/application/list-routes.use-case';
+import { routeSeed } from './route.seed';
 
 @Controller('routes')
 export class RoutesController {
@@ -19,6 +20,13 @@ export class RoutesController {
 
   @Get()
   findAll() {
+    return this.listUseCase.execute();
+  }
+  @Get('seeds')
+  async seed() {
+      for (const routeProps of routeSeed) {
+          await this.createUseCase.execute(routeProps);
+      }
     return this.listUseCase.execute();
   }
 

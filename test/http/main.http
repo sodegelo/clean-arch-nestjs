@@ -1,4 +1,8 @@
-GET http://localhost:3000/routes HTTP/1.1
+GET http://localhost:3000/routes/seeds HTTP/1.1
+Content-Type: application/json 
+###
+
+GET http://localhost:3000/routes  HTTP/1.1
 Content-Type: application/json 
 
 ###
